@@ -1,0 +1,45 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <fieldset class="slds-form-element">
+    <legend class="slds-form-element__legend slds-form-element__label">{label}</legend>
+    <div class="slds-form-element__control">
+      <template if:true={options} for:each={options} for:item="option">
+        <div key={option.value} class={optionBoxClass}>
+          <template lwc:if={multiple}>
+            <input
+              type="checkbox"
+              id={option.value}
+              value={option.value}
+              name="qS2L9tRc6E"
+              onchange={handleSelectionChange}
+              disabled={option.isDisabled}
+            />
+          </template>
+          <template lwc:else>
+            <input
+              type="radio"
+              id={option.value}
+              value={option.value}
+              name="qS2L9tRc6E"
+              onchange={handleSelectionChange}
+              disabled={option.isDisabled}
+            />
+          </template>
+          <label for={option.value}>
+            <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+              <lightning-icon icon-name={option.icon} size="large"></lightning-icon>
+            </span>
+            <span class="slds-visual-picker__body">
+              <span class="slds-text-title">{option.label}</span>
+            </span>
+            <span class="slds-icon_container slds-visual-picker__text-check">
+              <svg class="slds-icon slds-icon-text-check slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/apexpages/slds/latest/assets/icons/action-sprite/svg/symbols.svg#check"></use>
+              </svg>
+            </span>
+          </label>
+        </div>
+      </template>
+    </div>
+  </fieldset>
+</template>
